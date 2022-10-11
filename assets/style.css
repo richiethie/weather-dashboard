@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    background-color: navy;
+}
+
+h1 {
+    color: white;
+}
+
+
