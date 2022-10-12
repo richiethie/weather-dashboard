@@ -10,6 +10,7 @@ function onLoad() {
     for (var i = 0; i < citySearches.length; i++) {
         var cityIndex = citySearches[i]
         var li = document.createElement('li')
+        li.classList.add('recentSearches')
         li.textContent = cityIndex
         cityList.appendChild(li)
     }
@@ -24,6 +25,7 @@ function submitCity() {
     for (var i = 0; i < citySearches.length; i++) {
         var cityIndex = citySearches[i]
         var li = document.createElement('li')
+        li.classList.add('recentSearches')
         li.textContent = cityIndex
         cityList.appendChild(li)
     }

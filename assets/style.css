@@ -11,13 +11,59 @@ h1 {
     color: white;
 }
 
+.page-container {
+    display: flex;
+    width: 100%;
+    height: 1000px;
+    margin-top: 20px;
+}
+
 .input-container {
-    margin: 20px 20px 20px 20px;
-    background-color: aquamarine;
+    margin: 0px 20px 20px 20px;
     width: 400px;
-    height: 600px;
+    height: 100%;
 }
 
 .btn {
     width: 100%;
+    margin-bottom: 20px;
+}
+
+.cityList {
+    border-top: solid grey 2px;
+    padding: 0px;
+}
+
+.recentSearches {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 10px;
+    list-style: none;
+    background-color: rgb(167, 166, 166);
+}
+
+.recentSearches:hover {
+    cursor: pointer;
+    background-color: rgb(68, 68, 68);
+    color: rgb(212, 146, 23);
+}
+
+.forecast-container {
+    display: flex;
+    width: 1000px;
+    flex-direction: column;
+}
+
+.current-weather {
+    border: solid black 2px;
+    
+}
+
+.five-day-forecast {
+    margin-top: 25px;
+    border: solid black 2px;
+
 }
