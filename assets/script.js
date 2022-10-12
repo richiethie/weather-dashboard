@@ -1,14 +1,31 @@
 var cityInput = document.getElementById('city-input')
 var citySearchBtn = document.getElementById('citySearchBtn')
-
+var cityList = document.getElementById('cityList')
 
 var APIKey = "5e8c6c0488af2f64964fee765ec0afc9"
 
 function submitCity() {
+    var citySearches = localStorage.getItem('citySearches')
     console.log(cityInput.value.trim())
     cityName = cityInput.value.trim()
     getCoordinates(cityName)
+    localStorage.setItem('citySearches', cityName)
+    for (var i=0; i < citySearches.length; i++) {
+        var li = document.createElement('li')
+        li.textContent = cityName
+        cityList.appendChild(li)
+    }
+
     cityInput.value = ""
+
+    // localStorage.setItem('highScores', JSON.stringify(highScores))
+    // for (var i = 0; i < highScores.length; i++) {
+    //     var score = highScores[i];
+    //     var li = document.createElement('li')
+    //     li.classList.add('highScores')
+    //     li.textContent = score.user + " - " + score.score
+    //     scores.appendChild(li)
+    // }
 }
 
 
