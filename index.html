@@ -13,9 +13,13 @@
         <h1>Weather Dashboard</h1>
     </header>
     <main>
-        <div class="input-group mb-3">
+        <div class="input-container">
             <h2>Search for a City:</h2>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <div class="input-group mb-3">
+                <input class="form-control" id="city-input" type="text" placeholder="City Name" aria-label="default input example">
+            </div>
+            <input class="btn btn-primary" id="citySearchBtn" type="submit" value="Submit">
+
             <ul></ul>
         </div>
 
