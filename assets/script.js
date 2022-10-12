@@ -4,28 +4,32 @@ var cityList = document.getElementById('cityList')
 
 var APIKey = "5e8c6c0488af2f64964fee765ec0afc9"
 
-function submitCity() {
-    var citySearches = localStorage.getItem('citySearches')
-    console.log(cityInput.value.trim())
-    cityName = cityInput.value.trim()
-    getCoordinates(cityName)
-    localStorage.setItem('citySearches', cityName)
-    for (var i=0; i < citySearches.length; i++) {
+function onLoad() {
+    cityList.innerHTML = ""
+    var citySearches = JSON.parse(localStorage.getItem('citySearches')) || []
+    for (var i = 0; i < citySearches.length; i++) {
+        var cityIndex = citySearches[i]
         var li = document.createElement('li')
-        li.textContent = cityName
+        li.textContent = cityIndex
         cityList.appendChild(li)
     }
+}
 
+function submitCity() {
+    cityList.innerHTML = ""
+    cityName = cityInput.value.trim()
+    var citySearches = JSON.parse(localStorage.getItem('citySearches')) || []
+    citySearches.push(cityName)
+    localStorage.setItem('citySearches', JSON.stringify(citySearches))
+    for (var i = 0; i < citySearches.length; i++) {
+        var cityIndex = citySearches[i]
+        var li = document.createElement('li')
+        li.textContent = cityIndex
+        cityList.appendChild(li)
+    }
+    
+    getCoordinates(cityName)
     cityInput.value = ""
-
-    // localStorage.setItem('highScores', JSON.stringify(highScores))
-    // for (var i = 0; i < highScores.length; i++) {
-    //     var score = highScores[i];
-    //     var li = document.createElement('li')
-    //     li.classList.add('highScores')
-    //     li.textContent = score.user + " - " + score.score
-    //     scores.appendChild(li)
-    // }
 }
 
 
@@ -55,4 +59,5 @@ function getWeather(lat, lon) {
         })
 }       
 
+onLoad()
 citySearchBtn.addEventListener('click', submitCity)
