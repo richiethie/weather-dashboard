@@ -31,7 +31,10 @@ h1 {
 
 .cityList {
     border-top: solid grey 2px;
-    padding: 0px;
+    border-bottom: solid grey 2px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    
 }
 
 .recentSearches {
@@ -55,6 +58,7 @@ h1 {
     display: flex;
     width: 1000px;
     flex-direction: column;
+    margin-left: 50px;
 }
 
 .title-container {

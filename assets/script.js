@@ -7,6 +7,7 @@ var currentWind = document.getElementById('current-wind')
 var currentHumidity = document.getElementById('current-humidity')
 var forecastList = document.getElementById('forecast-list')
 var largeImg = document.getElementById('large-img')
+var clearHistoryBtn = document.getElementById('clearHistoryBtn')
 
 
 var APIKey = "5e8c6c0488af2f64964fee765ec0afc9"
@@ -132,5 +133,11 @@ function displayForecast(weatherData) {
 
 }
 
+function clearHistory () {
+    localStorage.removeItem('citySearches')
+    location.reload()
+}
+
 onLoad()
 citySearchBtn.addEventListener('click', submitCity)
+clearHistoryBtn.addEventListener('click', clearHistory)
