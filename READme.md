@@ -19,7 +19,7 @@ Once the user types in the name of a city and clicks "submit", the page will use
 
 ![display of current weather data on page](./assets/images/data.png)
 
-Since this page is able to save the user's search history, the user can also use this to re-search a city that they previously submitted. All this user will have to do is click on the name of the city located in the search history list. The following image shows that "West Bend" was the most recent search, but since the user has since clicked on "Fond du Lac" in the search history, it is displaying the data for Fond du Lac.
+Since this page is able to save the user's search history, the user can also use this to re-search a city that they previously submitted. All this user will have to do is click on the name of the city located in the search history list. The following image shows that "West Bend" was the most recent search, but since the user has since clicked on "Fond du Lac" in the search history, it is displaying the data for Fond du Lac. I also added a button to clear the search history on the page. This will allow an inexperienced user to clear the history if they do not know how to inspect the webpage and do it manually.
 
 ![image showing search history list](./assets/images/search-history.png)
 
