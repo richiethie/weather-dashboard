@@ -21,6 +21,7 @@ function onLoad() {
         var li = document.createElement('li')
         li.classList.add('recentSearches')
         li.textContent = cityIndex
+        li.addEventListener('click', displaySavedWeather)
         cityList.appendChild(li)
     }
 }
@@ -36,13 +37,27 @@ function submitCity() {
         var li = document.createElement('li')
         li.classList.add('recentSearches')
         li.textContent = cityIndex
+        li.addEventListener('click', displaySavedWeather)
         cityList.appendChild(li)
     }
-    
     getCoordinates(cityName)
     cityInput.value = ""
 }
 
+function displaySavedWeather(event) {
+    var cityName2 = event.target.textContent
+    var requestCoordinates = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName2 + '&limit=5&appid=' + APIKey
+
+    fetch(requestCoordinates)
+        .then(function (response2) {
+            return response2.json()
+        })
+        .then(function (data) {
+            var lat = data[0].lat
+            var lon = data[0].lon
+            getWeather(lat, lon)
+        })
+ }
 
 function getCoordinates(cityName) {
     var requestCoordinates = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=5&appid=' + APIKey
@@ -82,13 +97,12 @@ function displayWeather(weatherData) {
 function displayForecast(weatherData) {
     var weatherList = weatherData.list
     console.log(weatherList)
-    // forecastList.innerHTML = ""
+    forecastList.innerHTML = ""
     for (var i = 1; i < 6; i++) {
         forecastIndex = weatherList[i]
         console.log(forecastIndex)
         var fiveDayLi = document.createElement('li')
         fiveDayLi.classList.add('fiveDayInfo')
-        // fiveDayLi.textContent = "Testing 123"
         forecastList.appendChild(fiveDayLi)
         var forecastCityHeader = document.createElement('h4')
         var forecastCityImage = document.createElement('img')
