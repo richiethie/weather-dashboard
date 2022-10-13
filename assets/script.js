@@ -1,6 +1,11 @@
 var cityInput = document.getElementById('city-input')
 var citySearchBtn = document.getElementById('citySearchBtn')
 var cityList = document.getElementById('cityList')
+var currentCity = document.getElementById('current-city')
+var currentTemp = document.getElementById('current-temp')
+var currentWind = document.getElementById('current-wind')
+var currentHumidity = document.getElementById('current-humidity')
+
 
 var APIKey = "5e8c6c0488af2f64964fee765ec0afc9"
 
@@ -57,9 +62,22 @@ function getWeather(lat, lon) {
             return response.json()
         })
         .then(function (data) {
-            console.log(data)
+            var weatherData = data
+            displayWeather(weatherData)
         })
 }       
+
+function displayWeather(weatherData) {
+    console.log(weatherData)
+    currentCity.textContent = weatherData.city.name + weatherData.list[0].dt_txt
+    currentTemp.textContent = 'Temp: ' + (((weatherData.list[0].main.temp - 273) * 1.8) + 32).toFixed(2) + ' °F'
+}
+
+// grab from api object and display data in page
+// add event listener to recent searches and display data
+
+
+
 
 onLoad()
 citySearchBtn.addEventListener('click', submitCity)
