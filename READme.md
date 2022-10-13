@@ -23,4 +23,8 @@ Since this page is able to save the user's search history, the user can also use
 
 ![image showing search history list](./assets/images/search-history.png)
 
+## Links
+
+Live Website: https://richiethie.github.io/weather-dashboard/
+
 
