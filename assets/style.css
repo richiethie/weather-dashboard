@@ -57,8 +57,22 @@ h1 {
     flex-direction: column;
 }
 
+.title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.large-img {
+    margin-left: 25px;
+    height: 80px;
+    width: 80px;
+    border: none;
+}
+
 .current-weather {
     border: solid black 2px;
+    padding-left: 10px;
     
 }
 
@@ -77,15 +91,16 @@ h1 {
 }
 
 .fiveDayInfo {
-    background-color: navy;
+    background-color: rgb(33, 33, 65);
     display: flex;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 10px;
     flex-direction: column;
     margin-top: 20px;
     color: white;
-    height: 200px;
-    width: 160px;
+    height: 250px;
+    width: 180px;
     list-style: none;
 }
 
@@ -93,4 +108,9 @@ h4 {
     margin-bottom: 5px;
     border-bottom: solid white 2px;
     font-weight: bold;
+}
+
+.small-img {
+    height: 50px;
+    width: 50px;
 }

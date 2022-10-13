@@ -6,6 +6,7 @@ var currentTemp = document.getElementById('current-temp')
 var currentWind = document.getElementById('current-wind')
 var currentHumidity = document.getElementById('current-humidity')
 var forecastList = document.getElementById('forecast-list')
+var largeImg = document.getElementById('large-img')
 
 
 var APIKey = "5e8c6c0488af2f64964fee765ec0afc9"
@@ -87,7 +88,8 @@ function getWeather(lat, lon) {
 }       
 
 function displayWeather(weatherData) {
-    currentCity.textContent = weatherData.city.name + ' ' + currentDate + ' ' + weatherData.list[0].weather[0].icon // add image
+    currentCity.textContent = weatherData.city.name + ' ' + currentDate
+    largeImg.setAttribute('src', "https://openweathermap.org/img/wn/" + weatherData.list[0].weather[0].icon + ".png")
     currentTemp.textContent = 'Temp: ' + (((weatherData.list[0].main.temp - 273) * 1.8) + 32).toFixed(2) + ' °F'
     currentWind.textContent = 'Wind: ' + weatherData.list[0].wind.speed + ' MPH'
     currentHumidity.textContent = 'Humidity: ' + weatherData.list[0].main.humidity + '%'
@@ -113,7 +115,8 @@ function displayForecast(weatherData) {
         // add image
 
         forecastCityHeader.textContent = moment().add(i, 'days').format('MM-DD-YYYY')
-        forecastCityImage.setAttribute('id', forecastIndex.weather[0].id)
+        forecastCityImage.setAttribute('class', 'small-img')
+        forecastCityImage.setAttribute('src', "https://openweathermap.org/img/wn/" + forecastIndex.weather[0].icon + ".png")
         forecastCityTemp.textContent = 'Temp: ' + (((forecastIndex.main.temp - 273) * 1.8) + 32).toFixed(2) + ' °F'
         forecastCityWind.textContent = 'Wind: ' + forecastIndex.wind.speed + ' MPH'
         forecastCityHumidity.textContent = 'Humidity: ' + forecastIndex.main.humidity + '%'
@@ -128,9 +131,6 @@ function displayForecast(weatherData) {
     }
 
 }
-
-// grab from api object and display data in page
-// add event listener to recent searches and display data
 
 onLoad()
 citySearchBtn.addEventListener('click', submitCity)
