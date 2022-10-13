@@ -64,6 +64,33 @@ h1 {
 
 .five-day-forecast {
     margin-top: 25px;
-    border: solid black 2px;
 
+}
+
+.forecast-list {
+    display: flex;
+    padding-left: 0px;
+    margin: none;
+    justify-content: space-between;
+    flex-direction: row;
+    
+}
+
+.fiveDayInfo {
+    background-color: navy;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-direction: column;
+    margin-top: 20px;
+    color: white;
+    height: 200px;
+    width: 160px;
+    list-style: none;
+}
+
+h4 {
+    margin-bottom: 5px;
+    border-bottom: solid white 2px;
+    font-weight: bold;
 }
