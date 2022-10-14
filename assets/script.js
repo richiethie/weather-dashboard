@@ -48,7 +48,7 @@ function submitCity() {
 
 function displaySavedWeather(event) {
     var cityName2 = event.target.textContent
-    var requestCoordinates = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName2 + '&limit=5&appid=' + APIKey
+    var requestCoordinates = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName2 + '&limit=5&appid=' + APIKey
 
     fetch(requestCoordinates)
         .then(function (response2) {
@@ -62,7 +62,7 @@ function displaySavedWeather(event) {
  }
 
 function getCoordinates(cityName) {
-    var requestCoordinates = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=5&appid=' + APIKey
+    var requestCoordinates = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=5&appid=' + APIKey
 
     fetch(requestCoordinates)
         .then(function (response2) {
